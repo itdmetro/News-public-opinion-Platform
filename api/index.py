@@ -152,7 +152,8 @@ def handle_message(event):
             #     line_bot_api.reply_message(
             #         event.reply_token,
             #         TextSendMessage(text=i))
-            reply_msg = reply_msg+"\n\n"+google_custom_search_result
+            # reply_msg = reply_msg+"\n\n"+google_custom_search_result
+            reply_msg = google_custom_search_result
 
         line_bot_api.reply_message(
             event.reply_token,
