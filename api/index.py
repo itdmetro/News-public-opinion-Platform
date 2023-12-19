@@ -66,16 +66,14 @@ def google_custom_search(query):
         # print(datetime.date.today().day)
         month = datetime.date.today().month
         day = datetime.date.today().day
-        result_list.append(f"{month}月{day}日 10:00 新聞輿情彙整")
-        result_list.append("\n")
+        result_list.append(f"{month}月{day}日 10:00 新聞輿情彙整\n")
         # print("我的連網能力還不是很厲害，但以下有相關網站可供參考：")
         # for item in data["items"]:
         for i in range(len(data["items"])):
             title = data["items"][i]["title"]
             link = data["items"][i]["link"]
             result_list.append(f"{i+1}.{title}")
-            result_list.append(f"{i+1}.{link}")
-            result_list.append("\n")
+            result_list.append(f"{link}\n")
             # result_list.append(f"標題{i+1}： {title}")
             # result_list.append(f"連結{i+1}： {link}")
             # print(f"標題： {title} \n")
