@@ -6,7 +6,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import speech_recognition as sr
 # from pydub import AudioSegment
 from threading import Thread
-import openai
+# import openai
 import whisper
 import tempfile
 import requests
