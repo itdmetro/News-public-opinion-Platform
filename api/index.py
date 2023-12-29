@@ -52,6 +52,7 @@ def google_custom_search(query):
         "key": api_key,
         "cx": cse_id,
         "q": query,
+        "dateRestrict": "d1", 
         "num": num_results
     }
 
