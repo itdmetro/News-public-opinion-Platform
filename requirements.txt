@@ -1,0 +1,8 @@
+Flask==2.3.2
+line-bot-sdk
+SpeechRecognition
+pydub
+ffmpeg
+google-cloud-speech
+whisper
+google-search-results

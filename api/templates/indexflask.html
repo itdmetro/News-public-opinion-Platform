@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>北捷新聞輿情平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body class="bg-image">
+  <!-- adde "id=content" -->
+  <div class="title-bar"><b>北捷新聞輿情搜尋平台</b></div>
+  <div id="content">
+
+      <div id="top-div">
+
+        <!-- <div id="input_box_div"> -->
+          <textarea required id="input_box" placeholder="請輸入關鍵字進行新聞搜尋&#10;例：捷運|北捷"></textarea><br>
+        <!-- </div> -->
+
+      </div>
+
+      <div id="buttons-div">
+        <div id="buttons-block">
+          <button id="search-button" type="button" style="border:2px solid; display:true">送出</button>
+          <button id="clean-button" type="button" style="border:2px solid; display:true">清除內容</button>
+        </div>
+      </div>
+
+      <div id="bottom-div">
+        <div id="output_box">
+          <!-- <div id="output_box_scope"> -->
+            <!-- <span id="output_box_text"></span> -->
+            <!-- <b>新聞搜尋結果：</b><br> -->
+            <div id="output_box_text">歡迎來到北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋
+            <br>
+            <!-- <div id="output_box_text" style="display:none"></div> -->
+            <!-- <div class="cursor"></div> -->
+            </div>
+            <!-- <b>新聞搜尋結果：</b><br> -->
+            <!-- <table id="news_box">
+              <tr>
+                <td class="checkbox-cell"><input type="checkbox" name="news_select" value="新聞選擇"></td>
+                <td class="new_titlelink">1.新聞標題和網址</td>
+              </tr>
+              <tr>
+                <td class="checkbox-cell"><input type="checkbox" name="news_select" value="新聞選擇"></td>
+                <td class="new_titlelink">2.新聞標題和網址</td>
+              </tr>
+            </table> -->
+        </div>
+      </div>
+
+      <div id="bottom-buttons-div">
+        <div id="buttons-block">
+          <button id="linebot-button" type="button" style="border:2px solid; display:none">新聞複製至剪貼簿</button>
+          <!-- <button id="linebot-button" type="button" style="border:2px solid; display:none">新聞傳送至Line Bot</button> -->
+          <!-- <button id="db-button" type="button" style="border:2px solid; display:none">新聞存入資料庫</button> -->
+          <!-- <button id="tts-button" type="button" style="border:2px solid; display:none">新聞轉成語音檔</button> -->
+        </div>
+      </div>
+
+  </div>
+
+  <!-- <script type="module" src="./index.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.title-bar {
+    /*position: fixed;
+    right: 50%;
+    top: 0;*/
+    padding: 10px;
+    background-color: #f0f0f0;
+    width: 100%;
+    text-align: center;
+    font-size:36px;
+}
+
+.bg-image {
+  /*background-image: url("/static/images/bg劍潭站.jpg");*/
+  /*background-image: url("bg.png");*/
+  /*background-repeat: no-repeat;*/
+  background-color: #87CEFA;
+  background-size: 100% 100%;
+  /*padding:20px;*/
+}
+
+body *{
+  font-family: 'Mulish', sans-serif;
+  text-align: left;
+  /*text-align: center;*/
+}
+
+/*#logo{
+  width:50px;
+  height:50px;
+  margin:5px;
+  top: 5px;
+  left: 5px;
+  position: absolute;
+}*/
+
+#content{
+  /*width:820px;*/
+  position: relative;
+  margin:0 auto;
+  width: 100%;
+  height: 100%;
+  /*padding: 20px;*/
+}
+
+#top-div{
+  height: 18%;
+  /*height: 25%;*/
+  /*padding: 3% 3% 3% 1%;*/
+  display: flex;
+  justify-content: center;
+}
+
+#input_box{
+  position: relative;
+  top: 30%;
+  width: 70%;
+  height: 60%;
+  font-size: 20px;
+}
+
+/*#center-div{
+  position: relative;
+  height: 32%;
+  padding: 0.2%;
+}*/
+
+#buttons-div{
+  height: 6%;
+  padding: 0.2%;
+  clear:both;
+  padding: 1%;
+  text-align: center;
+}
+
+#bottom-div{
+  height:45%;
+  padding: 1%;
+}
+
+#bottom-buttons-div{
+  height: 6%;
+  padding: 0.2%;
+  clear:both;
+  padding: 1%;
+  text-align: center;
+}
+
+/*#news_box{
+  width: 100%;
+  border-collapse: collapse;
+}*/
+#news_box td {
+  border: 1px solid #000; /* 單元格邊框 */
+  padding: 10px; /* 單元格內邊距 */
+}
+.news_select{
+  text-align: center;
+}
+.checkbox-cell {
+  width: 10%;
+  text-align: center;
+}
+.new_titlelink {
+  width: 90%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 2px;
+  text-align: left;
+  /*text-align: center;*/
+}
+th {
+  background-color: #f2f2f2;
+}
+/*.vertical-cell {
+  writing-mode: vertical-rl;
+  width: 25px;
+}*/
+/*.checkbox-cell {
+  width: 15px;
+}*/
+.title{
+  text-align: center;
+}
+
+#buttons-block{
+  text-align: center;
+}
+
+#info_select{
+  position: relative;
+  /*position: absolute;*/
+  /*left: calc(50% + 100px);*/
+  width: 250px;
+  height: 35px;
+  /*top: 50%;*/
+  /*background-repeat: no-repeat;*/
+  background-size: 100% 100%;
+  padding:0px 0px 0px 0px;
+  background-color: #ffffff;
+  border:2px solid #000000;
+  margin: 0px 20px 0px 0px;
+}
+#info_select select {
+  text-align-last: left;
+}
+#info_select option {
+  text-align: left;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#loading{
+  position: relative;
+  /*width: 35px;*/
+  /*height: 35px;*/
+  /*padding: 2px;*/
+  animation: spin 1s linear infinite;
+}
+
+#textarea{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+  padding: 5px;
+}
+
+/*#speak-button{
+  position: absolute;
+  left: calc(60% + 250px);
+  top: 50%;
+  transform: translate(10%, -50%);
+  background-image: url("/static/images/speak_icon.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 48px;
+  width: 48px;
+  padding:0px 0px 0px 0px;
+  background-color: #ffffff;
+  border:2px solid #000000;
+}*/
+
+#output_box{
+  position: absolute;
+  left: 5%;
+  border:2px solid #000000;
+  padding: 4px;
+  font-size:24px;
+  text-align: left;
+  width: 90%;
+  height: 45%;
+  background-size: 100% 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+#video-wrapper{
+  padding: 0.2%;
+  background-position: top;
+  text-align: center;
+  width: 30%;
+  /*height: 50%;*/
+}
+
+#video-wrapper div{
+  /*width:400px;*/
+  margin:0 auto;
+  /*padding:50px 0 0 0;*/
+  /*height:50%;*/
+  text-align: center;
+}
+video{
+  border: 3px solid #007bb2;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+/*#buttons{
+  clear:both;
+  padding:0 0 0 0;
+  text-align: center;
+}*/
+
+button{
+  padding:8px 16px;
+  border-radius: 5px;
+  border:none;
+  font-size: 24px;
+  margin:0 5px;
+  background-color: #7459FE;
+  color: #fff;
+}
+
+button:hover{
+  background-color: #9480FF;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
