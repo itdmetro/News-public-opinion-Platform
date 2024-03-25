@@ -1,12 +1,25 @@
 
 let messages_list = [];
 
+//清除按鈕：
 const cleanButton = document.getElementById('clean-button');
 cleanButton.onclick = async () => { //按下清除按鈕
-  // $("input:radio[name='form_box_question']").removeAttr('checked');
-  document.getElementById("input_box").value = "";
+    // $("input:radio[name='form_box_question']").removeAttr('checked');
+    document.getElementById("input_box").value = "";
+    document.getElementById("output_box_text").innerHTML = "歡迎來到 北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋<br>";
+
+    // output_box = document.getElementById("output_box");
+    // div = document.createElement('div');
+    // div.setAttribute("id","output_box_text");
+    // divText = document.createTextNode("歡迎來到 北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋");
+    // div.appendChild(divText);
+    // output_box.appendChild(div);
+    // output_box.appendChild("<br>");
 }
 
+
+
+//搜尋按鈕：
 const searchbutton = document.getElementById('search-button');
 searchbutton.onclick = async () => { //按下Start按鈕
 
@@ -45,10 +58,12 @@ searchbutton.onclick = async () => { //按下Start按鈕
         // console.log("data.reply_msg:", data.reply_msg);
       if(typeof(data.reply_msg) == "undefined"){ //無搜尋結果
       // if(typeof(reply_msg) == "undefined"){ //無搜尋結果
+        $('#clipboard-button').hide();
         $('#linebot-button').hide();
         console.log("無搜尋結果");
         document.getElementById("output_box_text").innerHTML = reply_info; //回傳整個字串
       }else{
+        $('#clipboard-button').show();
         $('#linebot-button').show();
         // reply_msg = JSON.parse(data.reply_msg.replace(/'/g, '"')); // 將單引號替換為雙引號，並轉換成object
         reply_msg = JSON.parse(data.reply_msg.replace(/"/g, ' ').replace(/'/g, '"')); // 將標題可能有的雙引號變空格，單引號替換為雙引號，並轉換成object
@@ -123,15 +138,16 @@ searchbutton.onclick = async () => { //按下Start按鈕
 
 };
 
-const linebotbutton = document.getElementById('linebot-button');
-linebotbutton.onclick = async () => { //按下Start按鈕
 
+
+//選擇的新聞整理：
+async function select_news() {
     //擷取勾選新聞：
     var reply_msg_array = [reply_info]
     var checkbox_array = []
     // var checkbox_array = ["0","1","2","3","4"]
     var news_select = document.querySelectorAll("input[name='news_select']:checked");
-    console.log("news_select:",news_select)
+    // console.log("news_select:",news_select)
 
     for (var i = 0; i < news_select.length; i++) {
       checkbox_array.push(parseInt(news_select[i].value));
@@ -149,27 +165,54 @@ linebotbutton.onclick = async () => { //按下Start按鈕
     reply_msg_string = reply_msg_array.join("\n")
     console.log('選擇的新聞:');
     console.log("reply_msg_string:",reply_msg_string)
+}
 
+
+
+//剪貼簿按鈕：
+const clipboardbutton = document.getElementById('clipboard-button');
+clipboardbutton.onclick = async () => {
     //複製至剪貼簿：
+    select_news();
     const el = document.createElement('textarea');
     el.value = reply_msg_string;
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-    
 }
 
+
+
+//linebot按鈕：
+const linebotbutton = document.getElementById('linebot-button');
+linebotbutton.onclick = async () => {
+    select_news();
+
+    //搜尋關鍵字後讓後端傳回結果
+    fetch('/send_to_linebot', {
+      method: 'POST',
+      // headers: {'Content-Type': 'application/json; charset=utf-8'},
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      // body: messages_list
+      body: `select_news=${reply_msg_string}`  // 傳送字串
+    })
+}
+
+
+
+//資料庫按鈕：
 // const dbbutton = document.getElementById('db-button');
-// dbbutton.onclick = async () => { //按下Start按鈕
+// dbbutton.onclick = async () => {
 
 //     //擷取輸入內容：
 //     input_box = $("#input_box").val();
 //     console.log('input_box:', input_box);
 // }
 
+//文字轉語音按鈕：
 // const ttsbutton = document.getElementById('tts-button');
-// ttsbutton.onclick = async () => { //按下Start按鈕
+// ttsbutton.onclick = async () => {
 
 //     //擷取輸入內容：
 //     input_box = $("#input_box").val();

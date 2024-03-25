@@ -48,8 +48,8 @@ body *{
 }
 
 #top-div{
-  height: 18%;
-  /*height: 25%;*/
+  /*height: 18%;*/
+  height: 25%;
   /*padding: 3% 3% 3% 1%;*/
   display: flex;
   justify-content: center;
@@ -57,9 +57,9 @@ body *{
 
 #input_box{
   position: relative;
-  top: 30%;
+  top: 15%;
   width: 70%;
-  height: 60%;
+  height: 80%;
   font-size: 20px;
 }
 

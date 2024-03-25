@@ -15,9 +15,9 @@ import requests
 import datetime
 import os
 
-# line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
-# line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
-# working_status = os.getenv("DEFALUT_TALKING", default = "true").lower() == "true"
+line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
+line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
+serpapikey = os.getenv("serpapikey")
 
 app = Flask(__name__)
 
@@ -42,10 +42,13 @@ def web_run_google_custom_search():
         reply_info = "時間範圍內無搜尋結果"
         return jsonify({"reply_info": str(reply_info)})
     else:
-        print("結果如下")
+        # print("結果如下")
         month = datetime.date.today().month
         day = datetime.date.today().day
-        reply_info = str(month)+"月"+str(day)+"日 10:00 新聞輿情彙整"
+        hour = datetime.datetime.now().hour
+        minute = datetime.datetime.now().minute
+        # reply_info = str(month)+"月"+str(day)+"日 10:00 新聞輿情彙整"
+        reply_info = str(month)+"月"+str(day)+"日 "+str(hour)+":"+str(minute)+" 新聞輿情彙整"
 
         # print("result_list:", google_custom_search_result)
         # for i in google_custom_search_result:
@@ -63,22 +66,6 @@ def web_run_google_custom_search():
         # return jsonify({"reply_msg": str(reply_msg)})
         return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg)})
 
-@app.route("/webhook", methods=['POST'])
-def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-    # get request body as text
-    body = request.get_data(as_text=True)
-    body = json.loads(body)
-    print("Request body: " + body)
-    # app.logger.info("Request body: " + body)
-    # handle webhook body
-    try:
-        line_handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-    return 'OK'
-
 def google_custom_search(query):
 # def google_custom_search(api_key, cse_id, num_results, query):
     search = GoogleSearch({
@@ -89,7 +76,7 @@ def google_custom_search(query):
         "location": "Taipei City,Taiwan",
         "num": 50,
         "no_cache": True,
-        "api_key": "d71b43b933dceed8799a237d2ae6ee5b09f4641d171185ae0fe0411336877a8c"
+        "api_key": serpapikey
       })
     data = search.get_dict()
     # print(data)
@@ -113,58 +100,17 @@ def google_custom_search(query):
 # @line_handler.add(MessageEvent)
 # # @line_handler.add(MessageEvent, message=TextMessage)
 # def handle_message(event):
-#     global working_status
-#     working_status = True
+# def handle_message():
+@app.route('/send_to_linebot', methods=['POST'])
+def send_to_linebot():
+    select_news = request.form.get('select_news')  # 獲取傳送的字串 <'str'>
+    print("select_news:", select_news)
 
-#     if event.message.type == "text":
-#         print("text")
-#         event_message_text = event.message.text
+    reply_msg = select_news
+    line_bot_api.push_message('U55f37dcb182c4c815d3c7cf4d5069755', TextSendMessage(text=reply_msg))
+    # line_bot_api.broadcast(TextSendMessage(text=reply_msg))
 
-#     elif event.message.type == "audio":
-#         print("audio")
-#         audio_message = line_bot_api.get_message_content(event.message.id)
-#         audio_data = audio_message.content
-
-#         #進行語音轉文字處理
-#         # r = sr.Recognizer()
-
-#         # AudioSegment.converter = './ffmpeg/bin/ffmpeg.exe'#輸入自己的ffmpeg.exe路徑
-#         # sound = AudioSegment.from_file_using_temporary_files(path)
-#         # path = os.path.splitext(path)[0]+'.wav'
-#         # sound.export(path, format="wav")
-#         # with sr.AudioFile(file) as source:
-#         #     audio = r.record(source)
-#         # event_message_text = r.recognize_google(audio, language='zh-Hant')#設定要以什麼文字轉換
-
-#         with tempfile.NamedTemporaryFile("w+b", suffix=".m4a") as fp:
-#             # print("fp:", type(fp))
-#             print("fp:", fp) #<class 'tempfile._TemporaryFileWrapper'>
-#             # print("fp.name:", type(fp.name))
-#             print("fp.name:", fp.name) #<class 'str'>
-#             fp_name = fp.name
-#             # print("fp_name:", fp_name)
-#             for chuck in audio_message.iter_content():
-#                 fp.write(chuck)
-#             with open(fp_name, "rb") as tf:
-#                 #使用OpenAI whisper方法：
-#                 transcript = openai.Audio.transcribe("whisper-1", tf)
-#                 # transcript = openai.Audio.transcribe("whisper-1", fp.name)
-#                 print("transcript[\"text\"]")
-#                 event_message_text = transcript["text"]
-#                 print("event_message_text語音轉文字:", event_message_text)
-
-#     else:
-#         return
-        
-#     if working_status:
-#         print("working_status")
-#         print("event_message_text收到文字:", event_message_text)
-
-#         reply_msg = event_message_text
-
-#         line_bot_api.reply_message(
-#             event.reply_token,
-#             TextSendMessage(text=reply_msg))
+    return jsonify({"send_to_linebot": "send_to_linebot end"})
 
 if __name__ == "__main__":
     app.run()

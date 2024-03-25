@@ -18,7 +18,8 @@
       <div id="top-div">
 
         <!-- <div id="input_box_div"> -->
-          <textarea required id="input_box" placeholder="請輸入關鍵字進行新聞搜尋&#10;例：捷運|北捷"></textarea><br>
+          <!-- <textarea required id="input_box" placeholder="請輸入關鍵字進行新聞搜尋&#10;例：捷運|北捷"></textarea><br> -->
+          <textarea required id="input_box" placeholder='請輸入關鍵字或添加其他指令進行新聞搜尋 例：&#10;1.捷運 北捷 (AND搜尋)&#10;2.捷運|北捷 (OR搜尋)&#10;3.北捷 -台鐵 -桃捷 -中捷 -高捷 (排除特定字詞，要排除的字詞前面加上-)&#10;4."台北捷運" (搜尋完全相符結果，字詞前後加上引號)'></textarea><br>
         <!-- </div> -->
 
       </div>
@@ -56,8 +57,8 @@
 
       <div id="bottom-buttons-div">
         <div id="buttons-block">
-          <button id="linebot-button" type="button" style="border:2px solid; display:none">新聞複製至剪貼簿</button>
-          <!-- <button id="linebot-button" type="button" style="border:2px solid; display:none">新聞傳送至Line Bot</button> -->
+          <button id="clipboard-button" type="button" style="border:2px solid; display:none">新聞複製至剪貼簿</button>
+          <button id="linebot-button" type="button" style="border:2px solid; display:none">新聞傳送至Line Bot</button>
           <!-- <button id="db-button" type="button" style="border:2px solid; display:none">新聞存入資料庫</button> -->
           <!-- <button id="tts-button" type="button" style="border:2px solid; display:none">新聞轉成語音檔</button> -->
         </div>
