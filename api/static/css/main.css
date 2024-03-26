@@ -12,10 +12,12 @@ body, html {
     width: 100%;
     text-align: center;
     font-size:36px;
+    opacity: 75%;
 }
 
 .bg-image {
   /*background-image: url("/static/images/bg劍潭站.jpg");*/
+  background-image: url("/DALLE生圖.jpg");
   /*background-image: url("bg.png");*/
   /*background-repeat: no-repeat;*/
   background-color: #87CEFA;
@@ -24,9 +26,10 @@ body, html {
 }
 
 body *{
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Mulish', sans-serif, '微軟正黑體';
   text-align: left;
   /*text-align: center;*/
+  font-weight:900;
 }
 
 /*#logo{
@@ -49,7 +52,7 @@ body *{
 
 #top-div{
   /*height: 18%;*/
-  height: 25%;
+  height: 28%;
   /*padding: 3% 3% 3% 1%;*/
   display: flex;
   justify-content: center;
@@ -61,6 +64,9 @@ body *{
   width: 70%;
   height: 80%;
   font-size: 20px;
+  border-radius: 10px; /* 圓角半徑 */
+  box-shadow: 0 0 0 4px #fff, 0 0 0 9px #3498db, 0 0 0 14px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #F0F0F0;
 }
 
 /*#center-div{
@@ -70,7 +76,7 @@ body *{
 }*/
 
 #buttons-div{
-  height: 6%;
+  height: 8%;
   padding: 0.2%;
   clear:both;
   padding: 1%;
@@ -78,7 +84,7 @@ body *{
 }
 
 #bottom-div{
-  height:45%;
+  height:48%;
   padding: 1%;
 }
 
@@ -207,6 +213,9 @@ th {
   background-size: 100% 100%;
   background-color: white;
   overflow: auto;
+  border-radius: 10px; /* 圓角半徑 */
+  box-shadow: 0 0 0 4px #fff, 0 0 0 9px #3498db, 0 0 0 14px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #F0F0F0;
 }
 
 #video-wrapper{
@@ -242,7 +251,8 @@ button{
   border:none;
   font-size: 24px;
   margin:0 5px;
-  background-color: #7459FE;
+  background-color: #363636;
+  /*background-color: #7459FE;*/
   color: #fff;
 }
 

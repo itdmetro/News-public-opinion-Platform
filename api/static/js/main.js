@@ -6,15 +6,8 @@ const cleanButton = document.getElementById('clean-button');
 cleanButton.onclick = async () => { //按下清除按鈕
     // $("input:radio[name='form_box_question']").removeAttr('checked');
     document.getElementById("input_box").value = "";
-    document.getElementById("output_box_text").innerHTML = "歡迎來到 北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋<br>";
-
-    // output_box = document.getElementById("output_box");
-    // div = document.createElement('div');
-    // div.setAttribute("id","output_box_text");
-    // divText = document.createTextNode("歡迎來到 北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋");
-    // div.appendChild(divText);
-    // output_box.appendChild(div);
-    // output_box.appendChild("<br>");
+    document.getElementById("output_box_text").innerHTML = "歡迎來到北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋<br>";
+    $("#news_box").remove();
 }
 
 
@@ -37,7 +30,7 @@ searchbutton.onclick = async () => { //按下Start按鈕
     //清空原先所有的表格
     // document.getElementById("output_box").innerHTML = "";
     document.getElementById("output_box_text").innerHTML = "";
-    // document.getElementById("news_box").innerHTML = "";
+    $("#news_box").remove();
 
     // messages_list.push({"role": "user", "content": user_input})
     // query = JSON.stringify(query) //轉成string格式，不能用.toString()
