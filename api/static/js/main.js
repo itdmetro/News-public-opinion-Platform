@@ -144,7 +144,7 @@ item20button.onclick = async () => { //按下關鍵字按鈕
 
 const example1button = document.getElementById('example1');
 example1button.onclick = async () => { //按下關鍵字按鈕
-  document.getElementById("input_box").value = "捷運 北捷";
+  document.getElementById("input_box").value = "捷運&北捷";
   $("#input_box").focus();
 }
 const example2button = document.getElementById('example2');
@@ -154,7 +154,7 @@ example2button.onclick = async () => { //按下關鍵字按鈕
 }
 const example3button = document.getElementById('example3');
 example3button.onclick = async () => { //按下關鍵字按鈕
-  document.getElementById("input_box").value = "北捷 -台鐵 -桃捷 -中捷 -高捷";
+  document.getElementById("input_box").value = "北捷!台鐵!桃捷!中捷!高捷";
   $("#input_box").focus();
 }
 const example4button = document.getElementById('example4');
