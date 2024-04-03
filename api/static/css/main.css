@@ -3,21 +3,20 @@ body, html {
   margin: 0;
 }
 
-.title-bar {
-    /*position: fixed;
-    right: 50%;
-    top: 0;*/
-    padding: 10px;
+/*.title-bar {
+    padding: 10px 0 10px 0;
     background-color: #f0f0f0;
     width: 100%;
     text-align: center;
     font-size:36px;
-    opacity: 75%;
-}
+    opacity: 60%;
+    height: 5%;
+}*/
 
 .bg-image {
   /*background-image: url("/static/images/bg劍潭站.jpg");*/
-  background-image: url("/DALLE生圖.jpg");
+  /*background-image: url("/static/images/DALLE生圖.jpg");*/
+  background-image: url("/static/images/DALLE生圖1.jpg");
   /*background-image: url("bg.png");*/
   /*background-repeat: no-repeat;*/
   background-color: #87CEFA;
@@ -42,57 +41,131 @@ body *{
 }*/
 
 #content{
-  /*width:820px;*/
   position: relative;
+  /*display: flex;*/
   margin:0 auto;
   width: 100%;
-  height: 100%;
-  /*padding: 20px;*/
+  /*height: 100%;*/
+  height: 95%;
 }
 
+/*#left-div{
+  display: flex;
+  width: 60%;
+  height: 100%;
+}
+#right-div{
+  display: flex;
+  left: 60%;
+  width: 40%;
+  height: 100%;
+}*/
+
 #top-div{
-  /*height: 18%;*/
-  height: 28%;
+  /*height: 20%;*/
+  height: 11%;
   /*padding: 3% 3% 3% 1%;*/
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
+}
+
+#input_box_outer_div{
+  position: absolute;
+  width: 80%;
+  top: 10%;
+  /*left: 20%;*/
+  left: 2.5%;
+  height: 8%;
+  display: flex;
+}
+
+#input_box_div{
+  position: relative;
+  /*top: 10%;*/
+  width: 60%;
+  /*height: 40px;*/
+  height: 32px;
+  /*left: 20%;*/
+  font-size: 20px;
+  border-radius: 5px; /* 圓角半徑 */
+  box-shadow: 0 0 0 2px #D9D9D9, 0 0 0 4px #3498db, 0 0 0 6px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #D9D9D9;
+  margin: 0 10px 0 10px;
+  /*display: flex;*/
+}
+#and, #or, #exclude{
+  position: relative;
+  height: 32px;
+  font-size: 20px;
+  border-radius: 5px; /* 圓角半徑 */
+  box-shadow: 0 0 0 3px #D9D9D9, 0 0 0 6px #3498db; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #D9D9D9;
+  margin: 0 10px 0 10px;
+}
+#item1, #item2, #item3, #item4{
+  position: relative;
+  height: 32px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 3px #D9D9D9, 0 0 0 6px #2ecc71;
+  background-color: #D9D9D9;
+  margin: 0 10px 0 10px;
+}
+
+#input_box_outer_div2{
+  position: absolute;
+  width: 80%;
+  top: 18%;
+  /*left: 20%;*/
+  left: 2.5%;
+  height: 8%;
+  display: flex;
+}
+
+/*#item1, #item2, #item3, #item4, #item5, #item6, #item7, #item8, #item9, #item10, #item11, #item12, #item13, #item14, #item15, #item16, #item17, #item18, #item19, #item20{*/
+#item5, #item6, #item7, #item8, #item9, #item10, #item11, #item12, #item13, #item14, #item15, #item16, #item17, #item18, #item19, #item20{
+  position: relative;
+  height: 32px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 3px #D9D9D9, 0 0 0 6px #2ecc71;
+  background-color: #D9D9D9;
+  margin: 0 10px 0 10px;
 }
 
 #input_box{
-  position: relative;
-  top: 15%;
-  width: 70%;
+  /*width: 65%;*/
+  width: 75%;
   height: 80%;
-  font-size: 20px;
-  border-radius: 10px; /* 圓角半徑 */
-  box-shadow: 0 0 0 4px #fff, 0 0 0 9px #3498db, 0 0 0 14px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
-  background-color: #F0F0F0;
+  background: rgba(0,0,0,0);
+  border-radius: 5px;
+}
+#news_num_select{
+  width: 16%;
+  height: 95%;
+  float: right;
+  border-radius: 5px;
+  background-color: #D9D9D9;
 }
 
-/*#center-div{
-  position: relative;
-  height: 32%;
-  padding: 0.2%;
-}*/
-
-#buttons-div{
+/*#buttons-div{
   height: 8%;
   padding: 0.2%;
   clear:both;
   padding: 1%;
   text-align: center;
-}
+}*/
 
 #bottom-div{
-  height:48%;
+  height:82%;
   padding: 1%;
 }
 
 #bottom-buttons-div{
-  height: 6%;
+  height: 5%;
   padding: 0.2%;
   clear:both;
-  padding: 1%;
+  /*padding: 1%;*/
   text-align: center;
 }
 
@@ -113,6 +186,19 @@ body *{
 }
 .new_titlelink {
   width: 90%;
+}
+
+.fas.fa-search {
+  /*display: inline-block;*/
+  /*vertical-align: middle;*/
+  font-size: 20px;
+  color: #6E7EFF;
+}
+.cross{
+  /*display: inline-block;
+  vertical-align: middle;*/
+  font-size: 20px;
+  color: red;
 }
 
 th, td {
@@ -139,27 +225,6 @@ th {
   text-align: center;
 }
 
-#info_select{
-  position: relative;
-  /*position: absolute;*/
-  /*left: calc(50% + 100px);*/
-  width: 250px;
-  height: 35px;
-  /*top: 50%;*/
-  /*background-repeat: no-repeat;*/
-  background-size: 100% 100%;
-  padding:0px 0px 0px 0px;
-  background-color: #ffffff;
-  border:2px solid #000000;
-  margin: 0px 20px 0px 0px;
-}
-#info_select select {
-  text-align-last: left;
-}
-#info_select option {
-  text-align: left;
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -167,14 +232,6 @@ th {
   100% {
     transform: rotate(360deg);
   }
-}
-
-#loading{
-  position: relative;
-  /*width: 35px;*/
-  /*height: 35px;*/
-  /*padding: 2px;*/
-  animation: spin 1s linear infinite;
 }
 
 #textarea{
@@ -203,61 +260,130 @@ th {
 
 #output_box{
   position: absolute;
-  left: 5%;
+  left: 3%;
+  top: 28%;
   border:2px solid #000000;
   padding: 4px;
-  font-size:24px;
+  font-size:20px;
   text-align: left;
-  width: 90%;
-  height: 45%;
+  width: 65%;
+  height: 70%;
   background-size: 100% 100%;
   background-color: white;
   overflow: auto;
-  border-radius: 10px; /* 圓角半徑 */
-  box-shadow: 0 0 0 4px #fff, 0 0 0 9px #3498db, 0 0 0 14px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
-  background-color: #F0F0F0;
+  border-radius: 5px; /* 圓角半徑 */
+  box-shadow: 0 0 0 4px #D9D9D9, 0 0 0 7px #3498db, 0 0 0 10px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #D9D9D9;
+  display: flex;
 }
-
-#video-wrapper{
-  padding: 0.2%;
-  background-position: top;
-  text-align: center;
-  width: 30%;
-  /*height: 50%;*/
+#output_box_text{
+  position: absolute;
+  display: flex;
 }
-
-#video-wrapper div{
-  /*width:400px;*/
-  margin:0 auto;
-  /*padding:50px 0 0 0;*/
-  /*height:50%;*/
-  text-align: center;
+#output_box_right_div{
+  position: absolute;
+  left: 72%;
+  top: 28%;
+  padding: 4px;
+  text-align: left;
+  width: 25%;
+  height: 65%;
+  display: flex;
 }
-video{
-  border: 3px solid #007bb2;
-  border-radius: 50%;
-  background-color: #fff;
+#output_box_right{
+  position: absolute;
+  border:2px solid #000000;
+  padding: 4px;
+  font-size:20px;
+  text-align: left;
+  width: 100%;
+  height: 36%;
+  background-size: 100% 100%;
+  background-color: white;
+  overflow: auto;
+  border-radius: 5px; /* 圓角半徑 */
+  box-shadow: 0 0 0 4px #D9D9D9, 0 0 0 7px #3498db, 0 0 0 10px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #D9D9D9;
+  display: flex;
 }
-
-/*#buttons{
-  clear:both;
-  padding:0 0 0 0;
-  text-align: center;
+/*#output_box_right{
+  position: absolute;
+  left: 72%;
+  top: 28%;
+  border:2px solid #000000;
+  padding: 4px;
+  font-size:20px;
+  text-align: left;
+  width: 25%;
+  height: 25%;
+  background-size: 100% 100%;
+  background-color: white;
+  overflow: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 0 4px #D9D9D9, 0 0 0 7px #3498db, 0 0 0 10px #2ecc71;
+  background-color: #D9D9D9;
+  display: flex;
 }*/
+#output_box_right_button{
+  position: absolute;
+  text-align: center;
+  display: flex;
+  /*top: 42%;*/
+  top: 50%;
+  width: 100%;
+}
+#example1, #example2, #example3, #example4{
+  margin: 1%;
+  width: 25%;
+  text-align: center;
+}
+#clipboard-button{
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  top: 70%;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: midnightblue;
+}
+#linebot-button{
+  position: absolute;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  top: 85%;
+  left: 50%;
+  width: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background: midnightblue;
+}
 
 button{
-  padding:8px 16px;
-  border-radius: 5px;
-  border:none;
+  /*padding:8px 16px;*/
+  border: 0;
   font-size: 24px;
-  margin:0 5px;
-  background-color: #363636;
+  border-radius: 5px;
+  /*margin:0 5px;*/
+  background-color: #D9D9D9;
+  /*background-color: #363636;*/
   /*background-color: #7459FE;*/
-  color: #fff;
 }
 
 button:hover{
   background-color: #9480FF;
   cursor: pointer;
   transition: all 0.2s ease-out;
+}
+
+#clean-button{
+  float: right;
+  background: rgba(0,0,0,0);
+}
+#search-button{
+  float: right;
+  background: rgba(0,0,0,0);
 }

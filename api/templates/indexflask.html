@@ -8,28 +8,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
 <body class="bg-image">
   <!-- adde "id=content" -->
-  <div class="title-bar"><b>北捷新聞輿情搜尋平台</b></div>
+  <!-- <div class="title-bar"><b>北捷新聞輿情搜尋平台</b></div> -->
   <div id="content">
 
       <div id="top-div">
 
-        <!-- <div id="input_box_div"> -->
-          <!-- <textarea required id="input_box" placeholder="請輸入關鍵字進行新聞搜尋&#10;例：捷運|北捷"></textarea><br> -->
-          <textarea required id="input_box" placeholder='請輸入關鍵字或添加其他指令進行新聞搜尋 例：&#10;1.捷運 北捷 (AND搜尋)&#10;2.捷運|北捷 (OR搜尋)&#10;3.北捷 -台鐵 -桃捷 -中捷 -高捷 (排除特定字詞，要排除的字詞前面加上-)&#10;4."台北捷運" (搜尋完全相符結果，字詞前後加上引號)'></textarea><br>
-        <!-- </div> -->
-
-      </div>
-
-      <div id="buttons-div">
-        <div id="buttons-block">
-          <button id="search-button" type="button" style="border:2px solid; display:true">送出</button>
-          <button id="clean-button" type="button" style="border:2px solid; display:true">清除內容</button>
+        <div id="input_box_outer_div">
+          <div id="input_box_div">
+            <!-- <textarea required id="input_box" placeholder="請輸入關鍵字進行新聞搜尋&#10;例：捷運|北捷"></textarea><br> -->
+            <input required id="input_box" placeholder='請輸入關鍵字或添加其他指令進行新聞搜尋'></input>
+            <!-- <input required id="input_box" placeholder='請輸入關鍵字或添加其他指令進行新聞搜尋 例：&#10;1.捷運&北捷 (AND搜尋)&#10;2.捷運|北捷 (OR搜尋)&#10;3.北捷!台鐵!桃捷!中捷!高捷 (排除特定字詞，要排除的字詞前面加上!)&#10;4."台北捷運" (搜尋完全相符結果，字詞前後加上引號)'></input> -->
+            <select id="news_num_select">
+              <option value="" disabled selected>搜尋結果數量</option>
+              <option value=10>10筆</option>
+              <option value=20>20筆</option>
+              <option value=30>30筆</option>
+              <option value=50>50筆</option>
+            </select>
+            <button id="search-button" type="button" style="display:true"><i class="fas fa-search"></i></button>
+            <button id="clean-button" type="button" style="display:true"><i class="cross">❌</i><!-- <i class="fa-solid fa-xmark"></i> --></button>
+          </div>
+          <button id="and" type="button" style="border:2px solid;">包含</button>
+          <button id="or" type="button" style="border:2px solid;">或著</button>
+          <button id="exclude" type="button" style="border:2px solid;">排除</button>
+          <button id="item1" type="button" style="border:2px solid;">捷運</button>
+          <button id="item2" type="button" style="border:2px solid;">北捷</button>
+          <button id="item3" type="button" style="border:2px solid;">桃捷</button>
+          <button id="item4" type="button" style="border:2px solid;">中捷</button>
         </div>
+        <div id="input_box_outer_div2">
+          <button id="item5" type="button" style="border:2px solid;">高捷</button>
+          <button id="item6" type="button" style="border:2px solid;">地鐵</button>
+          <button id="item7" type="button" style="border:2px solid;">高鐵</button>
+          <button id="item8" type="button" style="border:2px solid;">台鐵</button>
+          <button id="item9" type="button" style="border:2px solid;">火車</button>
+          <button id="item10" type="button" style="border:2px solid;">小巨蛋</button>
+          <button id="item11" type="button" style="border:2px solid;">兒樂</button>
+          <button id="item12" type="button" style="border:2px solid;">新樂園</button>
+          <button id="item13" type="button" style="border:2px solid;">貓纜</button>
+          <button id="item14" type="button" style="border:2px solid;">纜車</button>
+          <button id="item15" type="button" style="border:2px solid;">捷之旅</button>
+          <button id="item16" type="button" style="border:2px solid;">北投會館</button>
+          <button id="item17" type="button" style="border:2px solid;">聯開</button>
+          <button id="item18" type="button" style="border:2px solid;">悠遊卡</button>
+          <button id="item19" type="button" style="border:2px solid;">黃清信</button>
+          <button id="item20" type="button" style="border:2px solid;">趙紹廉</button>
+        </div>
+
+
       </div>
+
+      <!-- <div id="buttons-div">
+        <div id="buttons-block">
+          <button id="search-button" type="button" style="border:2px solid; display:true"><i class="fas fa-search"></i></button>
+          <button id="clean-button" type="button" style="border:2px solid; display:true"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div> -->
 
       <div id="bottom-div">
         <div id="output_box">
@@ -53,17 +92,33 @@
               </tr>
             </table> -->
         </div>
-      </div>
+        <div id="output_box_right_div">
+          <div id="output_box_right">
+              <div id="output_box_right_text" style="white-space: pre-line">請輸入關鍵字或添加其他指令進行新聞搜尋 例：&#10;1.捷運&北捷 (AND搜尋)&#10;2.捷運|北捷 (OR搜尋)&#10;3.北捷!台鐵!桃捷!中捷!高捷 (排除特定字詞，要排除的字詞前面加上!)&#10;4."台北捷運" (搜尋完全相符結果，字詞前後加上引號)
+              </div>
+          </div>
+          <div id="output_box_right_button">
+            <button id="example1" type="button" style="border:2px solid;">範例一</button>
+            <button id="example2" type="button" style="border:2px solid;">範例二</button>
+            <button id="example3" type="button" style="border:2px solid;">範例三</button>
+            <button id="example4" type="button" style="border:2px solid;">範例四</button>
+          </div>
 
-      <div id="bottom-buttons-div">
-        <div id="buttons-block">
-          <button id="clipboard-button" type="button" style="border:2px solid; display:none">新聞複製至剪貼簿</button>
-          <button id="linebot-button" type="button" style="border:2px solid; display:none">新聞傳送至Line Bot</button>
-          <!-- <button id="db-button" type="button" style="border:2px solid; display:none">新聞存入資料庫</button> -->
-          <!-- <button id="tts-button" type="button" style="border:2px solid; display:none">新聞轉成語音檔</button> -->
+          <button id="clipboard-button" type="button" style="border:2px solid; display:true" disabled>新聞複製至剪貼簿</button>
+          <button id="linebot-button" type="button" style="border:2px solid; display:true" disabled>新聞傳送至Line Bot</button>
+
         </div>
       </div>
 
+      <!-- <div id="bottom-buttons-div"> -->
+        <!-- <div id="buttons-block"> -->
+          <!-- <button id="clipboard-button" type="button" style="border:2px solid; display:true" disabled>新聞複製至剪貼簿</button> -->
+          <!-- <button id="linebot-button" type="button" style="border:2px solid; display:true" disabled>新聞傳送至Line Bot</button> -->
+          <!-- <button id="db-button" type="button" style="border:2px solid; display:none">新聞存入資料庫</button> -->
+          <!-- <button id="tts-button" type="button" style="border:2px solid; display:none">新聞轉成語音檔</button> -->
+        <!-- </div> -->
+      <!-- </div> -->
+      
   </div>
 
   <!-- <script type="module" src="./index.js"></script> -->

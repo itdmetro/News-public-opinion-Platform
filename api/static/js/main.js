@@ -1,5 +1,16 @@
 
-let messages_list = [];
+// let messages_list = [];
+let num = 50;
+
+const selectElement = document.querySelector("#news_num_select");
+selectElement.addEventListener("change", (event) => {
+  //判斷選項後給chatgpt前置提詞：
+  select_val = $('#news_num_select').val();
+  console.log("select_val:", select_val);
+  num = select_val;
+});
+
+
 
 //清除按鈕：
 const cleanButton = document.getElementById('clean-button');
@@ -8,15 +19,162 @@ cleanButton.onclick = async () => { //按下清除按鈕
     document.getElementById("input_box").value = "";
     document.getElementById("output_box_text").innerHTML = "歡迎來到北捷新聞輿情搜尋平台，請在上方輸入關鍵字進行搜尋<br>";
     $("#news_box").remove();
+    $('#clipboard-button').prop("disabled", true);
+    $('#linebot-button').prop("disabled", true);
 }
 
 
+
+const andbutton = document.getElementById('and');
+andbutton.onclick = async () => { //按下包含按鈕
+  document.getElementById("input_box").value += "&";
+  $("#input_box").focus();
+}
+const orbutton = document.getElementById('or');
+orbutton.onclick = async () => { //按下或著按鈕
+  document.getElementById("input_box").value += "|";
+  $("#input_box").focus();
+}
+const excludebutton = document.getElementById('exclude');
+excludebutton.onclick = async () => { //按下排除按鈕
+  document.getElementById("input_box").value += "!";
+  $("#input_box").focus();
+}
+
+const item1button = document.getElementById('item1');
+item1button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item1button.innerHTML;
+  $("#input_box").focus();
+}
+const item2button = document.getElementById('item2');
+item2button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item2button.innerHTML;
+  $("#input_box").focus();
+}
+const item3button = document.getElementById('item3');
+item3button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item3button.innerHTML;
+  $("#input_box").focus();
+}
+const item4button = document.getElementById('item4');
+item4button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item4button.innerHTML;
+  $("#input_box").focus();
+}
+const item5button = document.getElementById('item5');
+item5button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item5button.innerHTML;
+  $("#input_box").focus();
+}
+const item6button = document.getElementById('item6');
+item6button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item6button.innerHTML;
+  $("#input_box").focus();
+}
+const item7button = document.getElementById('item7');
+item7button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item7button.innerHTML;
+  $("#input_box").focus();
+}
+const item8button = document.getElementById('item8');
+item8button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item8button.innerHTML;
+  $("#input_box").focus();
+}
+const item9button = document.getElementById('item9');
+item9button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item9button.innerHTML;
+  $("#input_box").focus();
+}
+const item10button = document.getElementById('item10');
+item10button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item10button.innerHTML;
+  $("#input_box").focus();
+}
+const item11button = document.getElementById('item11');
+item11button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item11button.innerHTML;
+  $("#input_box").focus();
+}
+const item12button = document.getElementById('item12');
+item12button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item12button.innerHTML;
+  $("#input_box").focus();
+}
+const item13button = document.getElementById('item13');
+item13button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item13button.innerHTML;
+  $("#input_box").focus();
+}
+const item14button = document.getElementById('item14');
+item14button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item14button.innerHTML;
+  $("#input_box").focus();
+}
+const item15button = document.getElementById('item15');
+item15button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item15button.innerHTML;
+  $("#input_box").focus();
+}
+const item16button = document.getElementById('item16');
+item16button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item16button.innerHTML;
+  $("#input_box").focus();
+}
+const item17button = document.getElementById('item17');
+item17button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item17button.innerHTML;
+  $("#input_box").focus();
+}
+const item18button = document.getElementById('item18');
+item18button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item18button.innerHTML;
+  $("#input_box").focus();
+}
+const item19button = document.getElementById('item19');
+item19button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item19button.innerHTML;
+  $("#input_box").focus();
+}
+const item20button = document.getElementById('item20');
+item20button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value += item20button.innerHTML;
+  $("#input_box").focus();
+}
+
+const example1button = document.getElementById('example1');
+example1button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value = "捷運 北捷";
+  $("#input_box").focus();
+}
+const example2button = document.getElementById('example2');
+example2button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value = "捷運|北捷";
+  $("#input_box").focus();
+}
+const example3button = document.getElementById('example3');
+example3button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value = "北捷 -台鐵 -桃捷 -中捷 -高捷";
+  $("#input_box").focus();
+}
+const example4button = document.getElementById('example4');
+example4button.onclick = async () => { //按下關鍵字按鈕
+  document.getElementById("input_box").value = '"台北捷運"';
+  $("#input_box").focus();
+}
+
+$("#input_box").keydown(function(event) {
+    if(event.keyCode == 13){
+        $("#search-button").click();
+    };
+});
 
 //搜尋按鈕：
 const searchbutton = document.getElementById('search-button');
 searchbutton.onclick = async () => { //按下Start按鈕
 
     begin = Date.now();
+    // num = 10;
 
     //擷取輸入內容：
     input_box = $("#input_box").val();
@@ -27,6 +185,9 @@ searchbutton.onclick = async () => { //按下Start按鈕
       return;
     }
 
+    //轉換成搜尋引擎可接受運算子
+    input_box = input_box.replace("&"," ").replace("!"," -")
+
     //清空原先所有的表格
     // document.getElementById("output_box").innerHTML = "";
     document.getElementById("output_box_text").innerHTML = "";
@@ -35,6 +196,7 @@ searchbutton.onclick = async () => { //按下Start按鈕
     // messages_list.push({"role": "user", "content": user_input})
     // query = JSON.stringify(query) //轉成string格式，不能用.toString()
     // console.log("query:", query)
+    console.log("num:", num);
 
     //搜尋關鍵字後讓後端傳回結果
     fetch('/web_run_google_custom_search', {
@@ -42,7 +204,8 @@ searchbutton.onclick = async () => { //按下Start按鈕
       // headers: {'Content-Type': 'application/json; charset=utf-8'},
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       // body: messages_list
-      body: `query=${input_box}`  // 傳送字串
+      // body: `query=${input_box}`  // 傳送字串
+      body: `query=${input_box}&num=${num}`  // 傳送字串
     })
     .then(response => response.json())
     .then(data => { //typeof(data.reply_msg)) -> string
@@ -51,13 +214,13 @@ searchbutton.onclick = async () => { //按下Start按鈕
         // console.log("data.reply_msg:", data.reply_msg);
       if(typeof(data.reply_msg) == "undefined"){ //無搜尋結果
       // if(typeof(reply_msg) == "undefined"){ //無搜尋結果
-        $('#clipboard-button').hide();
-        $('#linebot-button').hide();
+        $('#clipboard-button').prop("disabled", true);
+        $('#linebot-button').prop("disabled", true);
         console.log("無搜尋結果");
         document.getElementById("output_box_text").innerHTML = reply_info; //回傳整個字串
       }else{
-        $('#clipboard-button').show();
-        $('#linebot-button').show();
+        $('#clipboard-button').prop("disabled", false);
+        $('#linebot-button').prop("disabled", false);
         // reply_msg = JSON.parse(data.reply_msg.replace(/'/g, '"')); // 將單引號替換為雙引號，並轉換成object
         reply_msg = JSON.parse(data.reply_msg.replace(/"/g, ' ').replace(/'/g, '"')); // 將標題可能有的雙引號變空格，單引號替換為雙引號，並轉換成object
         // reply_msg = data.reply_msg.replace(/"/g, ' '); // 將雙引號替換為空格，並轉換成object
@@ -68,7 +231,10 @@ searchbutton.onclick = async () => { //按下Start按鈕
         // console.log("新聞搜尋返回結果:", data.reply_msg);  // 打印處理後的字串
         // document.getElementById("output_box_text").innerHTML = reply_info + reply_msg; //回傳整個字串
         // document.getElementById("output_box_text").innerHTML = reply_info; //回傳整個字串
-        document.getElementById("output_box_text").innerHTML = reply_info+'<br><b>新聞搜尋結果：</b><br>'; //回傳整個字串
+        // document.getElementById("output_box_text").innerHTML = reply_info+'<br><b>新聞搜尋結果：</b><br>'; //回傳整個字串
+        reply_info = reply_info+' 共'+(reply_msg.length).toString()+'筆'; //回傳整個字串
+        // document.getElementById("output_box_text").innerHTML = reply_info+' 共'+(reply_msg.length).toString()+'筆'; //回傳整個字串
+        document.getElementById("output_box_text").innerHTML = reply_info; //回傳整個字串
         // end = Date.now();
         // elapsedTime = (end-begin) / 1000;
         // console.log(`新聞搜尋 Time taken:: ${elapsedTime}s`);
@@ -76,8 +242,11 @@ searchbutton.onclick = async () => { //按下Start按鈕
         var news_box = document.createElement("table"); // 創建表格
         var news_tbody = document.createElement("tbody"); // 創建tbody
         news_box.setAttribute("id","news_box");
-        news_box.setAttribute("width","100%");
-        news_box.setAttribute("border-collapse","collapse");
+        news_box.style.width = "100%"
+        news_box.style.borderCollapse = "collapse"
+        news_box.style.display = "flex"
+        news_box.style.position = "absolute"
+        news_box.style.top = "6%"
 
         // for (var i = 0; i < data.reply_msg.length; i++) {
         for (var i = 0; i < reply_msg.length; i++) {
@@ -94,9 +263,11 @@ searchbutton.onclick = async () => { //按下Start按鈕
           checkbox.setAttribute("value",i.toString());
           checkbox.style.width = "25px";
           checkbox.style.height = "25px";
+          checkbox.style.backgroundColor = "#D9D9D9";
           td1.appendChild(checkbox);
           td1.setAttribute("name","checkbox-cell");
           td1.style.textAlign = "center";
+          td1.style.backgroundColor = "#D9D9D9";
           // content2 = document.createTextNode(title+"<br>"+link); // 創建td內容
           // td2.appendChild(content2);
           // td2.innerHTML = title+"<br>"+link;
@@ -104,8 +275,10 @@ searchbutton.onclick = async () => { //按下Start按鈕
           linkText = document.createTextNode(link);
           a.appendChild(linkText);
           a.href = link;
+          a.target = "_blank";
           // document.body.appendChild(a);
-          td2.innerHTML = title+"<br>";
+          td2.innerHTML = (i+1).toString()+"."+title+"<br>";
+          td2.style.backgroundColor = "#D9D9D9";
           td2.appendChild(a);
 
           tr.appendChild(td1);

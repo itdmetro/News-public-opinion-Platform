@@ -33,8 +33,12 @@ def home():
 @app.route('/web_run_google_custom_search', methods=['POST'])
 def web_run_google_custom_search():
     query = request.form.get('query')  # 獲取傳送的字串 <'str'>
+    num = request.form.get('num')  # 獲取傳送的字串 <'str'>
     print("query:", query)
-    google_custom_search_result = google_custom_search(query)
+    print("num:", num)
+    
+    # google_custom_search_result = google_custom_search(query)
+    google_custom_search_result = google_custom_search(query, num)
 
     print("google_custom_search_result:", google_custom_search_result)
     # if True:
@@ -48,12 +52,13 @@ def web_run_google_custom_search():
         return jsonify({"reply_info": str(reply_info)})
     else:
         # print("結果如下")
-        month = datetime.date.today().month
-        day = datetime.date.today().day
-        hour = datetime.datetime.now().hour
-        minute = datetime.datetime.now().minute
+        # now_time = datetime.datetime.now() #now_time
+        now_time = datetime.datetime.now() + datetime.timedelta(hours = 8) #utc8_time
+        # duration_time = datetime.datetime.now() - datetime.timedelta(days = 1) #duration_time
+        duration_time = datetime.datetime.now() - datetime.timedelta(hours = 16) #utc8_time
         # reply_info = str(month)+"月"+str(day)+"日 10:00 新聞輿情彙整"
-        reply_info = str(month)+"月"+str(day)+"日 "+str(hour)+":"+str(minute)+" 新聞輿情彙整"
+        # reply_info = str(now_time.month).zfill(2)+"月"+str(now_time.day).zfill(2)+"日 "+str(now_time.hour).zfill(2)+":"+str(now_time.minute).zfill(2)+" 新聞輿情彙整"
+        reply_info = str(duration_time.month).zfill(2)+"月"+str(duration_time.day).zfill(2)+"日"+str(duration_time.hour).zfill(2)+":"+str(duration_time.minute).zfill(2)+" ~ "+str(now_time.month).zfill(2)+"月"+str(now_time.day).zfill(2)+"日"+str(now_time.hour).zfill(2)+":"+str(now_time.minute).zfill(2)+" 新聞輿情彙整"
 
         # for i in google_custom_search_result:
         #     line_bot_api.reply_message(
@@ -70,7 +75,7 @@ def web_run_google_custom_search():
         # return jsonify({"reply_msg": str(reply_msg)})
         return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg)})
 
-def google_custom_search(query):
+def google_custom_search(query, num):
     apikey_list = [serpapikey, serpapikey1]
     apikey_status = True
     n = 0
@@ -83,6 +88,7 @@ def google_custom_search(query):
             "safe": "active",
             "location": "Taipei City,Taiwan",
             "num": 50,
+            "num": num,
             "no_cache": True,
             "api_key": apikey_list[n]
           })
@@ -131,4 +137,4 @@ def send_to_linebot():
     return jsonify({"send_to_linebot": "send_to_linebot end"})
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
