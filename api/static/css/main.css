@@ -14,12 +14,12 @@ body, html {
 }*/
 
 .bg-image {
-  /*background-image: url("/static/images/bg劍潭站.jpg");*/
   /*background-image: url("/static/images/DALLE生圖.jpg");*/
-  background-image: url("/static/images/DALLE生圖1.jpg");
+  /*background-image: url("/static/images/DALLE生圖1.jpg");*/
+  background-image: url("/static/css/DALLE生圖1.jpg");
   /*background-image: url("bg.png");*/
   /*background-repeat: no-repeat;*/
-  background-color: #87CEFA;
+  background-color: #0a0813;
   background-size: 100% 100%;
   /*padding:20px;*/
 }
@@ -30,15 +30,6 @@ body *{
   /*text-align: center;*/
   font-weight:900;
 }
-
-/*#logo{
-  width:50px;
-  height:50px;
-  margin:5px;
-  top: 5px;
-  left: 5px;
-  position: absolute;
-}*/
 
 #content{
   position: relative;
@@ -208,7 +199,7 @@ th, td {
   /*text-align: center;*/
 }
 th {
-  background-color: #f2f2f2;
+  background-color: #D9D9D9;
 }
 /*.vertical-cell {
   writing-mode: vertical-rl;
@@ -243,21 +234,6 @@ th {
   padding: 5px;
 }
 
-/*#speak-button{
-  position: absolute;
-  left: calc(60% + 250px);
-  top: 50%;
-  transform: translate(10%, -50%);
-  background-image: url("/static/images/speak_icon.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 48px;
-  width: 48px;
-  padding:0px 0px 0px 0px;
-  background-color: #ffffff;
-  border:2px solid #000000;
-}*/
-
 #output_box{
   position: absolute;
   left: 3%;
@@ -269,7 +245,7 @@ th {
   width: 65%;
   height: 70%;
   background-size: 100% 100%;
-  background-color: white;
+  background-color: #D9D9D9;
   overflow: auto;
   border-radius: 5px; /* 圓角半徑 */
   box-shadow: 0 0 0 4px #D9D9D9, 0 0 0 7px #3498db, 0 0 0 10px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
@@ -299,31 +275,13 @@ th {
   width: 100%;
   height: 36%;
   background-size: 100% 100%;
-  background-color: white;
+  background-color: #D9D9D9;
   overflow: auto;
   border-radius: 5px; /* 圓角半徑 */
   box-shadow: 0 0 0 4px #D9D9D9, 0 0 0 7px #3498db, 0 0 0 10px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
   background-color: #D9D9D9;
   display: flex;
 }
-/*#output_box_right{
-  position: absolute;
-  left: 72%;
-  top: 28%;
-  border:2px solid #000000;
-  padding: 4px;
-  font-size:20px;
-  text-align: left;
-  width: 25%;
-  height: 25%;
-  background-size: 100% 100%;
-  background-color: white;
-  overflow: auto;
-  border-radius: 5px;
-  box-shadow: 0 0 0 4px #D9D9D9, 0 0 0 7px #3498db, 0 0 0 10px #2ecc71;
-  background-color: #D9D9D9;
-  display: flex;
-}*/
 #output_box_right_button{
   position: absolute;
   text-align: center;
@@ -369,8 +327,6 @@ button{
   border-radius: 5px;
   /*margin:0 5px;*/
   background-color: #D9D9D9;
-  /*background-color: #363636;*/
-  /*background-color: #7459FE;*/
 }
 
 button:hover{
