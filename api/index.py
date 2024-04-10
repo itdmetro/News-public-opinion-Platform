@@ -19,6 +19,8 @@ line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 serpapikey = os.getenv("serpapikey")
 serpapikey1 = os.getenv("serpapikey1")
+serpapikey1 = os.getenv("serpapikey2")
+serpapikey1 = os.getenv("serpapikey3")
 
 app = Flask(__name__)
 
@@ -76,7 +78,7 @@ def web_run_google_custom_search():
         return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg)})
 
 def google_custom_search(query, num):
-    apikey_list = [serpapikey, serpapikey1]
+    apikey_list = [serpapikey, serpapikey1, serpapikey2, serpapikey3]
     apikey_status = True
     n = 0
     result_list = []
@@ -110,10 +112,10 @@ def google_custom_search(query, num):
             # print("result_string:",result_string)
             apikey_status = False
             return result_string
-        elif "out of" in data:
+        elif "error" in data:
             n+=1
             if n == len(apikey_list):
-                result_string = "已超過API可用次數"
+                result_string = "已超過API可用次數，請報修"
                 apikey_status = False
                 return result_string
         else:
