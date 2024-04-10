@@ -19,8 +19,8 @@ line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 serpapikey = os.getenv("serpapikey")
 serpapikey1 = os.getenv("serpapikey1")
-serpapikey1 = os.getenv("serpapikey2")
-serpapikey1 = os.getenv("serpapikey3")
+serpapikey2 = os.getenv("serpapikey2")
+serpapikey3 = os.getenv("serpapikey3")
 
 app = Flask(__name__)
 
