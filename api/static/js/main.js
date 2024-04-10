@@ -309,7 +309,8 @@ searchbutton.onclick = async () => { //按下Start按鈕
 //選擇的新聞整理：
 async function select_news() {
     //擷取勾選新聞：
-    var reply_msg_array = [reply_info]
+    // var reply_msg_array = [reply_info]
+    var reply_msg_array = []
     var checkbox_array = []
     // var checkbox_array = ["0","1","2","3","4"]
     var news_select = document.querySelectorAll("input[name='news_select']:checked");
