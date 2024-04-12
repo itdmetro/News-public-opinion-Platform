@@ -59,6 +59,21 @@ body *{
   /*justify-content: center;*/
 }
 
+#usage_div{
+  position: relative;
+  top: 25%;
+  width: 8%;
+  height: 32px;
+  left: 28%;
+  font-size: 20px;
+  border-radius: 5px; /* 圓角半徑 */
+  box-shadow: 0 0 0 2px #D9D9D9, 0 0 0 4px #3498db, 0 0 0 6px #2ecc71; /* 使用內部陰影模擬漸層邊框 */
+  background-color: #D9D9D9;
+  margin: 0 10px 0 10px;
+  /*display: flex;*/
+  text-align: center;
+}
+
 #input_box_outer_div{
   position: absolute;
   width: 80%;

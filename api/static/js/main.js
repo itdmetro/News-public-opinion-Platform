@@ -235,6 +235,7 @@ searchbutton.onclick = async () => { //按下Start按鈕
         reply_info = reply_info+' 共'+(reply_msg.length).toString()+'筆'; //回傳整個字串
         // document.getElementById("output_box_text").innerHTML = reply_info+' 共'+(reply_msg.length).toString()+'筆'; //回傳整個字串
         document.getElementById("output_box_text").innerHTML = reply_info; //回傳整個字串
+        document.getElementById("usage_div").innerHTML = data.usage; //更新usage
         // end = Date.now();
         // elapsedTime = (end-begin) / 1000;
         // console.log(`新聞搜尋 Time taken:: ${elapsedTime}s`);

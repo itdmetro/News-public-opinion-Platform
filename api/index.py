@@ -24,6 +24,19 @@ serpapikey3 = os.getenv("serpapikey3")
 
 app = Flask(__name__)
 
+# def usage():
+apikey_list = [serpapikey, serpapikey1, serpapikey2, serpapikey3]
+usage_count = 0
+for i in range(len(apikey_list)):
+    search = GoogleSearch({"api_key": apikey_list[i]})
+    account_usage = search.get_account()["this_month_usage"]
+    # print(account_usage)
+    usage_count += account_usage
+# print("usage_count:", usage_count)
+usage_status = str(usage_count)+"/"+str(100*len(apikey_list))+"次搜尋"
+# print("usage_status:", usage_status)
+# return usage_status
+
 # domain root
 @app.route('/')
 def home():
@@ -48,9 +61,9 @@ def web_run_google_custom_search():
         print("無搜尋結果")
         reply_info = "時間範圍內無搜尋結果"
         return jsonify({"reply_info": str(reply_info)})
-    elif google_custom_search_result == "已超過API可用次數":
-        print("已超過API可用次數")
-        reply_info = "已超過API可用次數"
+    elif google_custom_search_result == "已超過API可用次數，請報修":
+        print("已超過API可用次數，請報修")
+        reply_info = "已超過API可用次數，請報修"
         return jsonify({"reply_info": str(reply_info)})
     else:
         # print("結果如下")
@@ -74,8 +87,21 @@ def web_run_google_custom_search():
         #link:名稱
         #[{"title":"v","link":"v"}, {"title":"v","link":"v"}]
         #[{"title1":"v1","link1":"v1"}, {"title2":"v2","link2":"v2"}]
+
+        #再跑一次usage
+        apikey_list = [serpapikey, serpapikey1, serpapikey2, serpapikey3]
+        usage_count = 0
+        for i in range(len(apikey_list)):
+            search = GoogleSearch({"api_key": apikey_list[i]})
+            account_usage = search.get_account()["this_month_usage"]
+            # print(account_usage)
+            usage_count += account_usage
+        # print("usage_count:", usage_count)
+        usage_status = str(usage_count)+"/"+str(100*len(apikey_list))+"次搜尋"
+
         # return jsonify({"reply_msg": str(reply_msg)})
-        return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg)})
+        # return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg)})
+        return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg), "usage": usage_status})
 
 def google_custom_search(query, num):
     apikey_list = [serpapikey, serpapikey1, serpapikey2, serpapikey3]
