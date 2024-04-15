@@ -24,18 +24,22 @@ serpapikey3 = os.getenv("serpapikey3")
 
 app = Flask(__name__)
 
-# def usage():
-apikey_list = [serpapikey, serpapikey1, serpapikey2, serpapikey3]
-usage_count = 0
-for i in range(len(apikey_list)):
-    search = GoogleSearch({"api_key": apikey_list[i]})
-    account_usage = search.get_account()["this_month_usage"]
-    # print(account_usage)
-    usage_count += account_usage
-# print("usage_count:", usage_count)
-usage_status = str(usage_count)+"/"+str(100*len(apikey_list))+"次搜尋"
-# print("usage_status:", usage_status)
-# return usage_status
+@app.route('/usage')
+# @app.route('/usage', methods=['POST'])
+def usage():
+    apikey_list = [serpapikey, serpapikey1, serpapikey2, serpapikey3]
+    usage_count = 0
+    for i in range(len(apikey_list)):
+        search = GoogleSearch({"api_key": apikey_list[i]})
+        account_usage = search.get_account()["this_month_usage"]
+        # print(account_usage)
+        usage_count += account_usage
+    # print("usage_count:", usage_count)
+    usage_status = "剩餘"+str(100*len(apikey_list) - usage_count)+"次搜尋"
+    # usage_status = str(usage_count)+"/"+str(100*len(apikey_list))+"次搜尋"
+    # print("usage_status:", usage_status)
+    return jsonify({"usage_status": str(usage_status)})
+    # return usage_status
 
 # domain root
 @app.route('/')
@@ -44,6 +48,7 @@ def home():
     #web_run_google_custom_search()
     # return 'Hello, World!'
     return render_template('indexflask.html')
+    # return render_template('indexflask.html', usage=usage_status)
 
 @app.route('/web_run_google_custom_search', methods=['POST'])
 def web_run_google_custom_search():
@@ -97,7 +102,8 @@ def web_run_google_custom_search():
             # print(account_usage)
             usage_count += account_usage
         # print("usage_count:", usage_count)
-        usage_status = str(usage_count)+"/"+str(100*len(apikey_list))+"次搜尋"
+        usage_status = "剩餘"+str(100*len(apikey_list) - usage_count)+"次搜尋"
+        # usage_status = str(usage_count)+"/"+str(100*len(apikey_list))+"次搜尋"
 
         # return jsonify({"reply_msg": str(reply_msg)})
         # return jsonify({"reply_info": str(reply_info), "reply_msg": str(reply_msg)})

@@ -1,4 +1,10 @@
 
+$(document).ready(function () {
+  fetch('/usage').then(response => response.json()).then(data => {
+    document.getElementById("usage_div").innerHTML = data.usage_status; //更新usage
+  });
+});
+
 // let messages_list = [];
 let num = 50;
 
