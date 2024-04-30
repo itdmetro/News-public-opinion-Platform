@@ -59,6 +59,7 @@ def web_run_google_custom_search():
     
     # google_custom_search_result = google_custom_search(query)
     google_custom_search_result = google_custom_search(query, num)
+    google_custom_search_result = str(google_custom_search_result).replace(" minute ago","分鐘前").replace(" minutes ago","分鐘前").replace(" hour ago","小時前").replace(" hours ago","小時前")
 
     print("google_custom_search_result:", google_custom_search_result)
     # if True:
@@ -136,10 +137,13 @@ def google_custom_search(query, num):
                 temp_dict = {}
                 title = data["news_results"][i]["title"]
                 link = data["news_results"][i]["link"]
+                date = data["news_results"][i]["date"]
                 temp_dict["title"] = title
                 temp_dict["link"] = link
+                temp_dict["date"] = date
                 result_list.append(temp_dict)
             # result_string = "\n".join(result_list)
+            result_list = sorted(result_list, key=lambda x: float(eval(x["date"].replace(" minute ago","/60").replace(" minutes ago","/60").replace(" hour ago","").replace(" hours ago",""))))
             result_string = result_list
             # print("result_string:",result_string)
             apikey_status = False

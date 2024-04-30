@@ -259,6 +259,7 @@ searchbutton.onclick = async () => { //按下Start按鈕
         for (var i = 0; i < reply_msg.length; i++) {
           const title = reply_msg[i]["title"];
           const link = reply_msg[i]["link"];
+          const apidate = reply_msg[i]["date"];
           
           var tr = document.createElement("tr"); // 創建tr
           var td1 = document.createElement("td"); // 創建td
@@ -283,10 +284,14 @@ searchbutton.onclick = async () => { //按下Start按鈕
           a.appendChild(linkText);
           a.href = link;
           a.target = "_blank";
-          // document.body.appendChild(a);
+          document.body.appendChild(a);
           td2.innerHTML = (i+1).toString()+"."+title+"<br>";
           td2.style.backgroundColor = "#D9D9D9";
           td2.appendChild(a);
+          div = document.createElement('div');
+          divText = document.createTextNode(apidate);
+          div.appendChild(divText);
+          td2.appendChild(div);
 
           tr.appendChild(td1);
           tr.appendChild(td2);
