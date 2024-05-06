@@ -133,6 +133,7 @@ def google_custom_search(query, num):
 
         # if False:
         if "news_results" in data:
+            print("news_results")
             # for item in data["items"]:
             for i in range(len(data["news_results"])):
                 temp_dict = {}
@@ -147,15 +148,18 @@ def google_custom_search(query, num):
             result_list = sorted(result_list, key=lambda x: float(eval(x["date"].replace(" minute ago","/60").replace(" minutes ago","/60").replace(" hour ago","").replace(" hours ago",""))))
             result_string = result_list
             # print("result_string:",result_string)
+            print("result_list ok")
             apikey_status = False
             return result_string
-        elif "error" in data:
+        elif "Your account has run out of searches" in data:
+            print("Your account has run out of searches")
             n+=1
             if n == len(apikey_list):
                 result_string = "已超過API可用次數，請報修"
                 apikey_status = False
                 return result_string
         else:
+            print("else")
             result_string = result_list
             apikey_status = False
             return result_string
