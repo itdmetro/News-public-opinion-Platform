@@ -63,7 +63,8 @@ def web_run_google_custom_search():
 
     print("google_custom_search_result:", google_custom_search_result)
     # if True:
-    if len(google_custom_search_result) == 0:
+    # if len(google_custom_search_result) == 0:
+    if google_custom_search_result == "[]":
         print("無搜尋結果")
         reply_info = "時間範圍內無搜尋結果"
         return jsonify({"reply_info": str(reply_info)})
@@ -72,7 +73,7 @@ def web_run_google_custom_search():
         reply_info = "已超過API可用次數，請報修"
         return jsonify({"reply_info": str(reply_info)})
     else:
-        # print("結果如下")
+        print("結果如下")
         # now_time = datetime.datetime.now() #now_time
         now_time = datetime.datetime.now() + datetime.timedelta(hours = 8) #utc8_time
         # duration_time = datetime.datetime.now() - datetime.timedelta(days = 1) #duration_time
