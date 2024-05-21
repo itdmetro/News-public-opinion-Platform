@@ -132,7 +132,7 @@ def google_custom_search(query, num):
         # print(data)
 
         # if False:
-        if "news_results" in data:
+        if "news_results" in str(data):
             print("news_results")
             # for item in data["items"]:
             for i in range(len(data["news_results"])):
@@ -151,7 +151,7 @@ def google_custom_search(query, num):
             print("result_list ok")
             apikey_status = False
             return result_string
-        elif "Your account has run out of searches" in data:
+        elif "Your account has run out of searches" in str(data):
             print("Your account has run out of searches")
             n+=1
             if n == len(apikey_list):
